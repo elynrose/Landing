@@ -176,6 +176,46 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 42,
+                'title' => 'quiz_create',
+            ],
+            [
+                'id'    => 43,
+                'title' => 'quiz_edit',
+            ],
+            [
+                'id'    => 44,
+                'title' => 'quiz_show',
+            ],
+            [
+                'id'    => 45,
+                'title' => 'quiz_delete',
+            ],
+            [
+                'id'    => 46,
+                'title' => 'quiz_access',
+            ],
+            [
+                'id'    => 47,
+                'title' => 'quiz_answer_create',
+            ],
+            [
+                'id'    => 48,
+                'title' => 'quiz_answer_edit',
+            ],
+            [
+                'id'    => 49,
+                'title' => 'quiz_answer_show',
+            ],
+            [
+                'id'    => 50,
+                'title' => 'quiz_answer_delete',
+            ],
+            [
+                'id'    => 51,
+                'title' => 'quiz_answer_access',
+            ],
+            [
+                'id'    => 52,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -97,6 +97,26 @@
                 </a>
             </li>
         @endcan
+        @can('quiz_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.quizzes.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/quizzes") || request()->is("admin/quizzes/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-question c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.quiz.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('quiz_answer_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.quiz-answers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/quiz-answers") || request()->is("admin/quiz-answers/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-comments c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.quizAnswer.title') }}
+                </a>
+            </li>
+        @endcan
         @can('ai_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.ais.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/ais") || request()->is("admin/ais/*") ? "c-active" : "" }}">

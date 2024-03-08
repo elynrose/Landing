@@ -42,6 +42,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('ais/destroy', 'AiController@massDestroy')->name('ais.massDestroy');
     Route::resource('ais', 'AiController');
 
+    // Quiz
+    Route::delete('quizzes/destroy', 'QuizController@massDestroy')->name('quizzes.massDestroy');
+    Route::resource('quizzes', 'QuizController');
+
+    // Quiz Answers
+    Route::delete('quiz-answers/destroy', 'QuizAnswersController@massDestroy')->name('quiz-answers.massDestroy');
+    Route::resource('quiz-answers', 'QuizAnswersController');
+
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
     Route::post('messenger', 'MessengerController@storeTopic')->name('messenger.storeTopic');
@@ -100,6 +108,14 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     // Ai
     Route::delete('ais/destroy', 'AiController@massDestroy')->name('ais.massDestroy');
     Route::resource('ais', 'AiController');
+
+    // Quiz
+    Route::delete('quizzes/destroy', 'QuizController@massDestroy')->name('quizzes.massDestroy');
+    Route::resource('quizzes', 'QuizController');
+
+    // Quiz Answers
+    Route::delete('quiz-answers/destroy', 'QuizAnswersController@massDestroy')->name('quiz-answers.massDestroy');
+    Route::resource('quiz-answers', 'QuizAnswersController');
 
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');

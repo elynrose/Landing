@@ -117,6 +117,16 @@
                                             {{ trans('cruds.tracking.title') }}
                                         </a>
                                     @endcan
+                                    @can('quiz_access')
+                                        <a class="dropdown-item" href="{{ route('frontend.quizzes.index') }}">
+                                            {{ trans('cruds.quiz.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('quiz_answer_access')
+                                        <a class="dropdown-item" href="{{ route('frontend.quiz-answers.index') }}">
+                                            {{ trans('cruds.quizAnswer.title') }}
+                                        </a>
+                                    @endcan
                                     @can('ai_access')
                                         <a class="dropdown-item" href="{{ route('frontend.ais.index') }}">
                                             {{ trans('cruds.ai.title') }}

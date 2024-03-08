@@ -73,6 +73,22 @@
                             @endforeach
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.paid') }}
+                        </th>
+                        <td>
+                            <input type="checkbox" disabled="disabled" {{ $user->paid ? 'checked' : '' }}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.expiry') }}
+                        </th>
+                        <td>
+                            {{ $user->expiry }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

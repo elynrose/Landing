@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->boolean('two_factor')->default(0)->nullable();
             $table->string('two_factor_code')->nullable();
             $table->string('remember_token')->nullable();
+            $table->boolean('paid')->default(0)->nullable();
+            $table->date('expiry')->nullable();
             $table->datetime('two_factor_expires_at')->nullable();
             $table->timestamps();
             $table->softDeletes();

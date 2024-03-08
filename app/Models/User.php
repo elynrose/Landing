@@ -29,6 +29,7 @@ class User extends Authenticatable
         'email_verified_at',
         'verified_at',
         'created_at',
+        'expiry',
         'updated_at',
         'deleted_at',
         'two_factor_expires_at',
@@ -46,6 +47,8 @@ class User extends Authenticatable
         'two_factor_code',
         'remember_token',
         'created_at',
+        'paid',
+        'expiry',
         'updated_at',
         'deleted_at',
         'two_factor_expires_at',
@@ -142,6 +145,16 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function getExpiryAttribute($value)
+    {
+        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
+    }
+
+    public function setExpiryAttribute($value)
+    {
+        $this->attributes['expiry'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
     }
 
     public function getTwoFactorExpiresAtAttribute($value)

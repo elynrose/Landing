@@ -35,9 +35,6 @@
                             {{ trans('cruds.waitingList.fields.phone_number') }}
                         </th>
                         <th>
-                            {{ trans('cruds.waitingList.fields.landing_page') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -59,9 +56,6 @@
                             </td>
                             <td>
                                 {{ $waitingList->phone_number ?? '' }}
-                            </td>
-                            <td>
-                                {{ $waitingList->landing_page->title ?? '' }}
                             </td>
                             <td>
                                 @can('waiting_list_show')

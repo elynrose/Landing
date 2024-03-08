@@ -44,6 +44,12 @@
                             {{ trans('cruds.user.fields.roles') }}
                         </th>
                         <th>
+                            {{ trans('cruds.user.fields.paid') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.user.fields.expiry') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -78,6 +84,13 @@
                                 @foreach($user->roles as $key => $item)
                                     <span class="badge badge-info">{{ $item->title }}</span>
                                 @endforeach
+                            </td>
+                            <td>
+                                <span style="display:none">{{ $user->paid ?? '' }}</span>
+                                <input type="checkbox" disabled="disabled" {{ $user->paid ? 'checked' : '' }}>
+                            </td>
+                            <td>
+                                {{ $user->expiry ?? '' }}
                             </td>
                             <td>
                                 @can('user_show')

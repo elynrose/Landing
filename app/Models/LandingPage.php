@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\MultiTenantModelTrait;
+use Carbon\Carbon;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +25,7 @@ class LandingPage extends Model implements HasMedia
 
     protected $dates = [
         'created_at',
+        'countdown',
         'updated_at',
         'deleted_at',
     ];
@@ -40,6 +42,8 @@ class LandingPage extends Model implements HasMedia
         'facebook',
         'twitter',
         'linkedin',
+        'discord',
+        'countdown',
         'updated_at',
         'deleted_at',
         'created_by_id',
@@ -78,6 +82,16 @@ class LandingPage extends Model implements HasMedia
         }
 
         return $file;
+    }
+
+    public function getCountdownAttribute($value)
+    {
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+    }
+
+    public function setCountdownAttribute($value)
+    {
+        $this->attributes['countdown'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
 
     public function created_by()

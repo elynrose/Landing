@@ -44,6 +44,26 @@
                                 </tr>
                                 <tr>
                                     <th>
+                                        {{ trans('cruds.campaign.fields.subject') }}
+                                    </th>
+                                    <td>
+                                        {{ $campaign->subject }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.campaign.fields.header_image') }}
+                                    </th>
+                                    <td>
+                                        @if($campaign->header_image)
+                                            <a href="{{ $campaign->header_image->getUrl() }}" target="_blank" style="display: inline-block">
+                                                <img src="{{ $campaign->header_image->getUrl('thumb') }}">
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
                                         {{ trans('cruds.campaign.fields.body') }}
                                     </th>
                                     <td>

@@ -29,12 +29,6 @@
                             {{ trans('cruds.campaign.fields.title') }}
                         </th>
                         <th>
-                            {{ trans('cruds.campaign.fields.link') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.campaign.fields.label') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -50,12 +44,6 @@
                             </td>
                             <td>
                                 {{ $campaign->title ?? '' }}
-                            </td>
-                            <td>
-                                {{ $campaign->link ?? '' }}
-                            </td>
-                            <td>
-                                {{ $campaign->label ?? '' }}
                             </td>
                             <td>
                                 @can('campaign_show')

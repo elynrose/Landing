@@ -25,6 +25,10 @@ class UpdateCampaignRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'subject' => [
+                'string',
+                'nullable',
+            ],
             'body' => [
                 'required',
             ],

@@ -16,6 +16,10 @@ class Campaign extends Model implements HasMedia
 
     public $table = 'campaigns';
 
+    protected $appends = [
+        'header_image',
+    ];
+
     protected $dates = [
         'created_at',
         'updated_at',
@@ -25,6 +29,7 @@ class Campaign extends Model implements HasMedia
     protected $fillable = [
         'list_id',
         'title',
+        'subject',
         'body',
         'link',
         'label',
@@ -47,5 +52,17 @@ class Campaign extends Model implements HasMedia
     public function list()
     {
         return $this->belongsTo(WaitingList::class, 'list_id');
+    }
+
+    public function getHeaderImageAttribute()
+    {
+        $file = $this->getMedia('header_image')->last();
+        if ($file) {
+            $file->url       = $file->getUrl();
+            $file->thumbnail = $file->getUrl('thumb');
+            $file->preview   = $file->getUrl('preview');
+        }
+
+        return $file;
     }
 }

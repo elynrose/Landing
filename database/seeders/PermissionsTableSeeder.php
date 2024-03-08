@@ -136,46 +136,130 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 32,
-                'title' => 'tracking_create',
-            ],
-            [
-                'id'    => 33,
-                'title' => 'tracking_edit',
-            ],
-            [
-                'id'    => 34,
-                'title' => 'tracking_show',
-            ],
-            [
-                'id'    => 35,
-                'title' => 'tracking_delete',
-            ],
-            [
-                'id'    => 36,
-                'title' => 'tracking_access',
-            ],
-            [
-                'id'    => 37,
                 'title' => 'ai_create',
             ],
             [
-                'id'    => 38,
+                'id'    => 33,
                 'title' => 'ai_edit',
             ],
             [
-                'id'    => 39,
+                'id'    => 34,
                 'title' => 'ai_show',
             ],
             [
-                'id'    => 40,
+                'id'    => 35,
                 'title' => 'ai_delete',
             ],
             [
-                'id'    => 41,
+                'id'    => 36,
                 'title' => 'ai_access',
             ],
             [
+                'id'    => 37,
+                'title' => 'quiz_create',
+            ],
+            [
+                'id'    => 38,
+                'title' => 'quiz_edit',
+            ],
+            [
+                'id'    => 39,
+                'title' => 'quiz_show',
+            ],
+            [
+                'id'    => 40,
+                'title' => 'quiz_delete',
+            ],
+            [
+                'id'    => 41,
+                'title' => 'quiz_access',
+            ],
+            [
                 'id'    => 42,
+                'title' => 'quiz_answer_create',
+            ],
+            [
+                'id'    => 43,
+                'title' => 'quiz_answer_edit',
+            ],
+            [
+                'id'    => 44,
+                'title' => 'quiz_answer_show',
+            ],
+            [
+                'id'    => 45,
+                'title' => 'quiz_answer_delete',
+            ],
+            [
+                'id'    => 46,
+                'title' => 'quiz_answer_access',
+            ],
+            [
+                'id'    => 47,
+                'title' => 'engagement_create',
+            ],
+            [
+                'id'    => 48,
+                'title' => 'engagement_edit',
+            ],
+            [
+                'id'    => 49,
+                'title' => 'engagement_show',
+            ],
+            [
+                'id'    => 50,
+                'title' => 'engagement_delete',
+            ],
+            [
+                'id'    => 51,
+                'title' => 'engagement_access',
+            ],
+            [
+                'id'    => 52,
+                'title' => 'report_create',
+            ],
+            [
+                'id'    => 53,
+                'title' => 'report_edit',
+            ],
+            [
+                'id'    => 54,
+                'title' => 'report_show',
+            ],
+            [
+                'id'    => 55,
+                'title' => 'report_delete',
+            ],
+            [
+                'id'    => 56,
+                'title' => 'report_access',
+            ],
+            [
+                'id'    => 57,
+                'title' => 'survey_access',
+            ],
+            [
+                'id'    => 58,
+                'title' => 'payment_create',
+            ],
+            [
+                'id'    => 59,
+                'title' => 'payment_edit',
+            ],
+            [
+                'id'    => 60,
+                'title' => 'payment_show',
+            ],
+            [
+                'id'    => 61,
+                'title' => 'payment_delete',
+            ],
+            [
+                'id'    => 62,
+                'title' => 'payment_access',
+            ],
+            [
+                'id'    => 63,
                 'title' => 'profile_password_edit',
             ],
         ];

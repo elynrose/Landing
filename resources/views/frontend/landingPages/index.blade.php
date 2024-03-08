@@ -26,37 +26,7 @@
                                         {{ trans('cruds.landingPage.fields.title') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.landingPage.fields.description') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.heading') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.sub_heading') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.banner_image') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.introduction') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.confirmation_message') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.about') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.photo') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.facebook') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.twitter') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.landingPage.fields.linkedin') }}
+                                        {{ trans('cruds.landingPage.fields.created_at') }}
                                     </th>
                                     <th>
                                         &nbsp;
@@ -70,45 +40,7 @@
                                             {{ $landingPage->title ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $landingPage->description ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $landingPage->heading ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $landingPage->sub_heading ?? '' }}
-                                        </td>
-                                        <td>
-                                            @if($landingPage->banner_image)
-                                                <a href="{{ $landingPage->banner_image->getUrl() }}" target="_blank" style="display: inline-block">
-                                                    <img src="{{ $landingPage->banner_image->getUrl('thumb') }}">
-                                                </a>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            {{ $landingPage->introduction ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $landingPage->confirmation_message ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $landingPage->about ?? '' }}
-                                        </td>
-                                        <td>
-                                            @if($landingPage->photo)
-                                                <a href="{{ $landingPage->photo->getUrl() }}" target="_blank" style="display: inline-block">
-                                                    <img src="{{ $landingPage->photo->getUrl('thumb') }}">
-                                                </a>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            {{ $landingPage->facebook ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $landingPage->twitter ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $landingPage->linkedin ?? '' }}
+                                            {{ $landingPage->created_at ?? '' }}
                                         </td>
                                         <td>
                                             @can('landing_page_show')

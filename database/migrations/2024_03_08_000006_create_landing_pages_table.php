@@ -20,6 +20,8 @@ class CreateLandingPagesTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
+            $table->string('discord')->nullable();
+            $table->datetime('countdown')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

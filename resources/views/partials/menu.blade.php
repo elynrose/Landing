@@ -87,13 +87,33 @@
                 </a>
             </li>
         @endcan
-        @can('tracking_access')
+        @can('engagement_access')
             <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.trackings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/trackings") || request()->is("admin/trackings/*") ? "c-active" : "" }}">
+                <a href="{{ route("admin.engagements.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/engagements") || request()->is("admin/engagements/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-dice c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.engagement.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('report_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.reports.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/reports") || request()->is("admin/reports/*") ? "c-active" : "" }}">
                     <i class="fa-fw far fa-chart-bar c-sidebar-nav-icon">
 
                     </i>
-                    {{ trans('cruds.tracking.title') }}
+                    {{ trans('cruds.report.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('payment_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.payments.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/payments") || request()->is("admin/payments/*") ? "c-active" : "" }}">
+                    <i class="fa-fw far fa-credit-card c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.payment.title') }}
                 </a>
             </li>
         @endcan
@@ -105,6 +125,38 @@
                     </i>
                     {{ trans('cruds.ai.title') }}
                 </a>
+            </li>
+        @endcan
+        @can('survey_access')
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/quizzes*") ? "c-show" : "" }} {{ request()->is("admin/quiz-answers*") ? "c-show" : "" }}">
+                <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-search c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.survey.title') }}
+                </a>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @can('quiz_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.quizzes.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/quizzes") || request()->is("admin/quizzes/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-question c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.quiz.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('quiz_answer_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.quiz-answers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/quiz-answers") || request()->is("admin/quiz-answers/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-comments c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.quizAnswer.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
             </li>
         @endcan
         @php($unread = \App\Models\QaTopic::unreadCount())

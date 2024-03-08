@@ -127,6 +127,22 @@
                             {{ $landingPage->linkedin }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.landingPage.fields.discord') }}
+                        </th>
+                        <td>
+                            {{ $landingPage->discord }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.landingPage.fields.countdown') }}
+                        </th>
+                        <td>
+                            {{ $landingPage->countdown }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

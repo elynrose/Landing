@@ -11,6 +11,7 @@ class CreateCampaignsTable extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('subject')->nullable();
             $table->longText('body');
             $table->string('link')->nullable();
             $table->string('label')->nullable();

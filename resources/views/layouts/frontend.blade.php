@@ -112,14 +112,39 @@
                                             {{ trans('cruds.campaign.title') }}
                                         </a>
                                     @endcan
-                                    @can('tracking_access')
-                                        <a class="dropdown-item" href="{{ route('frontend.trackings.index') }}">
-                                            {{ trans('cruds.tracking.title') }}
+                                    @can('engagement_access')
+                                        <a class="dropdown-item" href="{{ route('frontend.engagements.index') }}">
+                                            {{ trans('cruds.engagement.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('report_access')
+                                        <a class="dropdown-item" href="{{ route('frontend.reports.index') }}">
+                                            {{ trans('cruds.report.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('payment_access')
+                                        <a class="dropdown-item" href="{{ route('frontend.payments.index') }}">
+                                            {{ trans('cruds.payment.title') }}
                                         </a>
                                     @endcan
                                     @can('ai_access')
                                         <a class="dropdown-item" href="{{ route('frontend.ais.index') }}">
                                             {{ trans('cruds.ai.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('survey_access')
+                                        <a class="dropdown-item disabled" href="#">
+                                            {{ trans('cruds.survey.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('quiz_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.quizzes.index') }}">
+                                            {{ trans('cruds.quiz.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('quiz_answer_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.quiz-answers.index') }}">
+                                            {{ trans('cruds.quizAnswer.title') }}
                                         </a>
                                     @endcan
 

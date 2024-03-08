@@ -22,7 +22,7 @@ class CampaignsController extends Controller
     {
         abort_if(Gate::denies('campaign_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $campaigns = Campaign::with(['list'])->get();
+        $campaigns = Campaign::with(['list', 'media'])->get();
 
         return view('admin.campaigns.index', compact('campaigns'));
     }
@@ -39,6 +39,10 @@ class CampaignsController extends Controller
     public function store(StoreCampaignRequest $request)
     {
         $campaign = Campaign::create($request->all());
+
+        if ($request->input('header_image', false)) {
+            $campaign->addMedia(storage_path('tmp/uploads/' . basename($request->input('header_image'))))->toMediaCollection('header_image');
+        }
 
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $campaign->id]);
@@ -61,6 +65,17 @@ class CampaignsController extends Controller
     public function update(UpdateCampaignRequest $request, Campaign $campaign)
     {
         $campaign->update($request->all());
+
+        if ($request->input('header_image', false)) {
+            if (! $campaign->header_image || $request->input('header_image') !== $campaign->header_image->file_name) {
+                if ($campaign->header_image) {
+                    $campaign->header_image->delete();
+                }
+                $campaign->addMedia(storage_path('tmp/uploads/' . basename($request->input('header_image'))))->toMediaCollection('header_image');
+            }
+        } elseif ($campaign->header_image) {
+            $campaign->header_image->delete();
+        }
 
         return redirect()->route('admin.campaigns.index');
     }

@@ -35,6 +35,10 @@ class StoreUserRequest extends FormRequest
                 'required',
                 'array',
             ],
+            'expiry' => [
+                'date_format:' . config('panel.date_format'),
+                'nullable',
+            ],
         ];
     }
 }

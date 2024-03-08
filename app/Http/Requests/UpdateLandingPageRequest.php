@@ -47,6 +47,14 @@ class UpdateLandingPageRequest extends FormRequest
                 'string',
                 'nullable',
             ],
+            'discord' => [
+                'string',
+                'nullable',
+            ],
+            'countdown' => [
+                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'nullable',
+            ],
         ];
     }
 }

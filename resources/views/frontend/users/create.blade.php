@@ -62,6 +62,29 @@
                             <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
                         </div>
                         <div class="form-group">
+                            <div>
+                                <input type="hidden" name="paid" value="0">
+                                <input type="checkbox" name="paid" id="paid" value="1" {{ old('paid', 0) == 1 ? 'checked' : '' }}>
+                                <label for="paid">{{ trans('cruds.user.fields.paid') }}</label>
+                            </div>
+                            @if($errors->has('paid'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('paid') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.paid_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry">{{ trans('cruds.user.fields.expiry') }}</label>
+                            <input class="form-control date" type="text" name="expiry" id="expiry" value="{{ old('expiry') }}">
+                            @if($errors->has('expiry'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('expiry') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.expiry_helper') }}</span>
+                        </div>
+                        <div class="form-group">
                             <button class="btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
                             </button>

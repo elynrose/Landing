@@ -34,13 +34,29 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('campaigns/ckmedia', 'CampaignsController@storeCKEditorImages')->name('campaigns.storeCKEditorImages');
     Route::resource('campaigns', 'CampaignsController');
 
-    // Tracking
-    Route::delete('trackings/destroy', 'TrackingController@massDestroy')->name('trackings.massDestroy');
-    Route::resource('trackings', 'TrackingController');
-
     // Ai
     Route::delete('ais/destroy', 'AiController@massDestroy')->name('ais.massDestroy');
     Route::resource('ais', 'AiController');
+
+    // Quiz
+    Route::delete('quizzes/destroy', 'QuizController@massDestroy')->name('quizzes.massDestroy');
+    Route::resource('quizzes', 'QuizController');
+
+    // Quiz Answers
+    Route::delete('quiz-answers/destroy', 'QuizAnswersController@massDestroy')->name('quiz-answers.massDestroy');
+    Route::resource('quiz-answers', 'QuizAnswersController');
+
+    // Engagement
+    Route::delete('engagements/destroy', 'EngagementController@massDestroy')->name('engagements.massDestroy');
+    Route::resource('engagements', 'EngagementController');
+
+    // Reports
+    Route::delete('reports/destroy', 'ReportsController@massDestroy')->name('reports.massDestroy');
+    Route::resource('reports', 'ReportsController');
+
+    // Payments
+    Route::delete('payments/destroy', 'PaymentsController@massDestroy')->name('payments.massDestroy');
+    Route::resource('payments', 'PaymentsController');
 
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
@@ -93,13 +109,29 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('campaigns/ckmedia', 'CampaignsController@storeCKEditorImages')->name('campaigns.storeCKEditorImages');
     Route::resource('campaigns', 'CampaignsController');
 
-    // Tracking
-    Route::delete('trackings/destroy', 'TrackingController@massDestroy')->name('trackings.massDestroy');
-    Route::resource('trackings', 'TrackingController');
-
     // Ai
     Route::delete('ais/destroy', 'AiController@massDestroy')->name('ais.massDestroy');
     Route::resource('ais', 'AiController');
+
+    // Quiz
+    Route::delete('quizzes/destroy', 'QuizController@massDestroy')->name('quizzes.massDestroy');
+    Route::resource('quizzes', 'QuizController');
+
+    // Quiz Answers
+    Route::delete('quiz-answers/destroy', 'QuizAnswersController@massDestroy')->name('quiz-answers.massDestroy');
+    Route::resource('quiz-answers', 'QuizAnswersController');
+
+    // Engagement
+    Route::delete('engagements/destroy', 'EngagementController@massDestroy')->name('engagements.massDestroy');
+    Route::resource('engagements', 'EngagementController');
+
+    // Reports
+    Route::delete('reports/destroy', 'ReportsController@massDestroy')->name('reports.massDestroy');
+    Route::resource('reports', 'ReportsController');
+
+    // Payments
+    Route::delete('payments/destroy', 'PaymentsController@massDestroy')->name('payments.massDestroy');
+    Route::resource('payments', 'PaymentsController');
 
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');

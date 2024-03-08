@@ -1,32 +1,41 @@
 @extends('layouts.admin')
 @section('content')
-@can('campaign_create')
+@can('quiz_answer_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.campaigns.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.campaign.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.quiz-answers.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.quizAnswer.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.campaign.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.quizAnswer.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Campaign">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-QuizAnswer">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.campaign.fields.list') }}
+                            {{ trans('cruds.quizAnswer.fields.quiz') }}
                         </th>
                         <th>
-                            {{ trans('cruds.campaign.fields.title') }}
+                            {{ trans('cruds.quizAnswer.fields.answer') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.quizAnswer.fields.email') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.waitingList.fields.first_name') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.waitingList.fields.last_name') }}
                         </th>
                         <th>
                             &nbsp;
@@ -34,32 +43,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($campaigns as $key => $campaign)
-                        <tr data-entry-id="{{ $campaign->id }}">
+                    @foreach($quizAnswers as $key => $quizAnswer)
+                        <tr data-entry-id="{{ $quizAnswer->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $campaign->list->first_name ?? '' }}
+                                {{ $quizAnswer->quiz->question ?? '' }}
                             </td>
                             <td>
-                                {{ $campaign->title ?? '' }}
+                                {{ $quizAnswer->answer ?? '' }}
                             </td>
                             <td>
-                                @can('campaign_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.campaigns.show', $campaign->id) }}">
+                                {{ $quizAnswer->email->email ?? '' }}
+                            </td>
+                            <td>
+                                {{ $quizAnswer->email->first_name ?? '' }}
+                            </td>
+                            <td>
+                                {{ $quizAnswer->email->last_name ?? '' }}
+                            </td>
+                            <td>
+                                @can('quiz_answer_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.quiz-answers.show', $quizAnswer->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('campaign_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.campaigns.edit', $campaign->id) }}">
+                                @can('quiz_answer_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.quiz-answers.edit', $quizAnswer->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('campaign_delete')
-                                    <form action="{{ route('admin.campaigns.destroy', $campaign->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('quiz_answer_delete')
+                                    <form action="{{ route('admin.quiz-answers.destroy', $quizAnswer->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -84,11 +102,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('campaign_delete')
+@can('quiz_answer_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.campaigns.massDestroy') }}",
+    url: "{{ route('admin.quiz-answers.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -119,7 +137,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Campaign:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-QuizAnswer:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();

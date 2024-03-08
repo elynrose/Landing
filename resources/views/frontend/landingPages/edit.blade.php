@@ -136,6 +136,26 @@
                             <span class="help-block">{{ trans('cruds.landingPage.fields.linkedin_helper') }}</span>
                         </div>
                         <div class="form-group">
+                            <label for="discord">{{ trans('cruds.landingPage.fields.discord') }}</label>
+                            <input class="form-control" type="text" name="discord" id="discord" value="{{ old('discord', $landingPage->discord) }}">
+                            @if($errors->has('discord'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('discord') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.landingPage.fields.discord_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="countdown">{{ trans('cruds.landingPage.fields.countdown') }}</label>
+                            <input class="form-control datetime" type="text" name="countdown" id="countdown" value="{{ old('countdown', $landingPage->countdown) }}">
+                            @if($errors->has('countdown'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('countdown') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.landingPage.fields.countdown_helper') }}</span>
+                        </div>
+                        <div class="form-group">
                             <button class="btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
                             </button>
